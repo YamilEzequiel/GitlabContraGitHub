@@ -1,0 +1,10 @@
+stages:
+  - github
+deploy-github:
+  stage: github
+  before_script:
+    - echo "En teoria ya subio a GitHub si todo esta ok!!! :D "
+  only:
+    - testGit
+  script:
+    - git push "$GIT_USER:$GIT_TOKEN@$GIT_URL" "HEAD:test" -o skip-ci
